@@ -1,0 +1,36 @@
+<ion-content class="ion-padding">
+  <ion-slides pager="true" [options]="slideOps">
+    <ion-slide *ngFor="let slide of slides">
+      <ion-icon name="close" (click)="finish()"></ion-icon>
+      <img src="assets/img/logo.png" alt="Platzi Musuc logo">
+      <h1>{{slide.title}}</h1>
+      <h2>{{slide.subTitle}}</h2>
+      <p>{{slide.description}}</p>
+      <ion-icon name="{{slide.icon}}"></ion-icon>
+    </ion-slide>
+    <!-- <ion-slide>
+      <ion-icon name="close"></ion-icon>
+      <img src="assets/img/logo.png" alt="Platzi Musuc logo">
+      <h1>Escucha tu música</h1>
+      <h2>EN CUALQUIR LUGAR</h2>
+      <p>Los mejores álbunes, las mejores canciones. Escucha y comparte en cualquier momento, a todas horas.</p>
+      <ion-icon name="play"></ion-icon>
+    </ion-slide>
+    <ion-slide>
+      <ion-icon name="close"></ion-icon>
+      <img src="assets/img/logo.png" alt="Platzi Musuc logo">
+      <h1>Disfruta de nuestro reproductor</h1>
+      <h2>DE VIDEOS UNCREÍBLES</h2>
+      <p>Entra al modo video de nuestro reproductor y obtén acceso a clips, documentales y making offs increíble de tu artista favorito.</p>
+      <ion-icon name="play"></ion-icon>
+    </ion-slide>
+    <ion-slide>
+      <ion-icon name="close"></ion-icon>
+      <img src="assets/img/logo.png" alt="Platzi Musuc logo">
+      <h1>Accede al exclusivo</h1>
+      <h2>MODO DEPORTE</h2>
+      <p>Crea una playlist basada en tu actividad física. <br> Ten reportes y acceso a lo que necesites, integrado con GPS</p>
+      <ion-icon name="play"></ion-icon>
+    </ion-slide> -->
+  </ion-slides>
+</ion-content>

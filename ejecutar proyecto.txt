@@ -1,0 +1,4 @@
+Primero ionic build
+Luego npx cap sync
+SI se realisan muchos cambios npx cap update
+SI solo se toco el html y css npx cap copy
