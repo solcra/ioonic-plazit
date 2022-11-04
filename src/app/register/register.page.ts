@@ -5,12 +5,12 @@ import { AuthenticateService } from '../services/authenticate.service';
 import { Storage } from '@ionic/storage-angular';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-register',
+  templateUrl: './register.page.html',
+  styleUrls: ['./register.page.scss'],
 })
-export class LoginPage implements OnInit {
-  loguinForm: FormGroup;
+export class RegisterPage implements OnInit {
+  registerForm: FormGroup;
   validationMessage = {
     email:[
       {type: 'required', message: 'El email es requerido'},
@@ -19,6 +19,14 @@ export class LoginPage implements OnInit {
     password:[
       {type:'required', message: 'El password es requerido'},
       {type:'minlength', message: 'Es demasiado conrto deve ser miniomo de 6'}
+    ],
+    nombre:[
+      {type:'required', message: 'El nombre es requerido'},
+      {type:'minlength', message: 'Es demasiado conrto deve ser miniomo de 3'}
+    ],
+    apellido:[
+      {type:'required', message: 'El apellido es requerido'},
+      {type:'minlength', message: 'Es demasiado conrto deve ser miniomo de 3'}
     ]
   };
   errorMessage: string;
@@ -26,31 +34,31 @@ export class LoginPage implements OnInit {
     private formBuilder: FormBuilder,
     private authService: AuthenticateService,
     private navCtrl: NavController,
-    private storage: Storage
+    private storage: Storage,
   ) {
-    this.loguinForm = this.formBuilder.group({
+    this.registerForm = this.formBuilder.group({
       email: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]{3,}.+[a-zA-Z0-9-]{2,6}$')]),
       password: new FormControl('',[Validators.required,Validators.minLength(6)]),
+      nombre: new FormControl('',[Validators.required,Validators.minLength(3)]),
+      apellido: new FormControl('',[Validators.required,Validators.minLength(3)])
     });
   }
 
   ngOnInit() {
   }
 
-  loguinUser(){
-    console.log(this.loguinForm);
-    this.authService.logionUser(this.loguinForm.value).then(res=>{
-      this.storage.create();
-      this.storage.set('isUserLoggedIn', true);
-      this.errorMessage = '';
-      this.navCtrl.navigateForward('home');
-    }). catch(err=>{
-      this.errorMessage = err;
+  registerUser(){
+    this.authService.registerUser(this.registerForm.value).then(()=>{
+      console.log(this.registerForm.value);
+      this.navCtrl.navigateBack('login');
     });
   }
 
-  goToRegister(){
-    this.navCtrl.navigateForward('register');
+  goToLoguin(){
+    this.navCtrl.navigateForward('login');
+  }
+  goToLogin(){
+    this.navCtrl.navigateBack('login');
   }
 
 }

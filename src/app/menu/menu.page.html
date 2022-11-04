@@ -1,0 +1,21 @@
+<ion-split-pane>
+  <ion-menu contentId="menu-content" menuId="menu-content" side="end" type="overlay">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Awesome avocado menu</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closeMenu()">
+            <ion-icon slot="start" name="arrow-back" size="large"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>Home</ion-item>
+        <ion-item (click)="logout()"><ion-icon name="log-out" color="primary" slot="start"> </ion-icon>Salir</ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+</ion-split-pane>
+<ion-router-outlet id="menu-content" main></ion-router-outlet>

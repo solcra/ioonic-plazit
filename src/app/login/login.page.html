@@ -31,9 +31,10 @@
       <p *ngIf="(loguinForm.get('password').hasError(validation.type) && loguinForm.get('password').dirty) || (loguinForm.get('password').hasError(validation.type) && loguinForm.get('password').touched)">{{validation.message}}</p>
     </ng-container>
   </div>
+  {{ errorMessage }}
   <ion-button expand="full" shape="round" color="success" [disabled]="!loguinForm.valid" type="submit">Ingresa</ion-button>
 </form>
 </ion-content>
 <ion-footer class="ion-text-center ion-padding">
-  <ion-button expand="full" fill="outline" shape="round" color="success">Click para registrar</ion-button>
+  <ion-button expand="full" fill="outline" shape="round" color="success" (click)="goToRegister()">Click para registrar</ion-button>
 </ion-footer>
