@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { SongsModalPageModule } from './songs-modal/songs-modal.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,9 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
     IonicModule.forRoot(),
     AppRoutingModule,
     IonicStorageModule.forRoot(),
-    HttpClientModule],
+    HttpClientModule,
+    SongsModalPageModule
+  ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })

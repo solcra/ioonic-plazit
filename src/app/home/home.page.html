@@ -6,10 +6,19 @@
 </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
+  <h1>Artistas</h1>
+  <ion-slides [options]="slideOps" *ngIf="artists.length">
+    <ion-slide *ngFor="let artist of artists">
+      <ion-avatar (click)="showSongs(artist)">
+        <img [src]="artist.images[0].url" alt="">
+        <span>{{artist.name}}</span>
+      </ion-avatar>
+    </ion-slide>
+  </ion-slides>
   <h1>Albunes</h1>
   <ion-slides [options]="slideOps" *ngIf="albums.length">
     <ion-slide *ngFor="let album of albums">
-      <ion-avatar>
+      <ion-avatar class="square-avatar">
         <img [src]="album.images[0].url" alt="">
         <span>{{album.name}}</span>
       </ion-avatar>
@@ -18,10 +27,45 @@
   <h1>Canciones</h1>
   <ion-slides [options]="slideOps" *ngIf="songs.length">
     <ion-slide *ngFor="let song of songs">
-      <ion-avatar>
+      <ion-avatar class="square-avatar">
         <img [src]="song.images[0].url" alt="">
         <span>{{song.name}}</span>
       </ion-avatar>
     </ion-slide>
   </ion-slides>
 </ion-content>
+<ion-footer>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col class="ion-text-start">
+        {{ paseTime(currentSong.currentTime) || '0:00' }}
+      </ion-col>
+      <ion-col class="ion-text-end">
+        {{ paseTime(currentSong.duration) || '0:00' }}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-progress-bar type="determinate" [value]="newTeam"  reversed="false" color="primary"></ion-progress-bar>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="1">
+        <ion-icon  name="heart"></ion-icon>
+      </ion-col>
+      <ion-col size="10">
+        <ion-text color="primary">
+          <h1>{{ song.name || "Aun no a selecionado cancion"}}</h1>
+        </ion-text>
+      </ion-col>
+      <ion-col size="1">
+        <ion-icon name="play" (click)="play()" *ngIf="!song.playing"></ion-icon>
+        <ion-icon name="pause" (click)="pause()" *ngIf="song.playing"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-text color="danger" *ngIf="!song.name">
+    <h2>Aqui aparecéra nuestra cancion</h2>
+  </ion-text>
+  <ion-text color="primary" *ngIf="song.name">
+    <h1>{{ song.name }}</h1>
+  </ion-text>
+</ion-footer>

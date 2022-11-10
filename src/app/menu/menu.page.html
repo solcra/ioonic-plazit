@@ -1,4 +1,4 @@
-<ion-split-pane>
+<ion-split-pane contentId="menu-content">
   <ion-menu contentId="menu-content" menuId="menu-content" side="end" type="overlay">
     <ion-header>
       <ion-toolbar>
@@ -17,5 +17,6 @@
       </ion-list>
     </ion-content>
   </ion-menu>
+  <ion-router-outlet id="menu-content" main></ion-router-outlet>
+
 </ion-split-pane>
-<ion-router-outlet id="menu-content" main></ion-router-outlet>

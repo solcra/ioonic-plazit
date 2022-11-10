@@ -1,7 +1,16 @@
 
 ion-avatar {
-  height: 111px;
+  height: 120px;
+  width: 90%;
+  img {
+    width: 90px;
+    height: 90px;
+  }
   span{
     font-size: 0.7em;
   }
+}
+
+.square-avatar{
+  --border-radius:0;
 }
