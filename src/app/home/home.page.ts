@@ -21,7 +21,7 @@ export class HomePage {
     centeredSlides:true,
     speed: 400
   };
-  currentSong: any = {};
+  currentSong: HTMLAudioElement;
   newTeam;
   constructor(
     private musicService: PlatziMusicService,

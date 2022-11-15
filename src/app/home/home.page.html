@@ -36,12 +36,12 @@
 </ion-content>
 <ion-footer>
   <ion-grid fixed>
-    <ion-row>
+    <ion-row *ngIf="currentSong">
       <ion-col class="ion-text-start">
-        {{ paseTime(currentSong.currentTime) || '0:00' }}
+        {{ paseTime(currentSong.currentTime) || '00:00' }}
       </ion-col>
       <ion-col class="ion-text-end">
-        {{ paseTime(currentSong.duration) || '0:00' }}
+        {{ paseTime(currentSong.duration) || '00:00' }}
       </ion-col>
     </ion-row>
   </ion-grid>
@@ -62,10 +62,10 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  <ion-text color="danger" *ngIf="!song.name">
+  <!-- <ion-text color="danger" *ngIf="!song.name">
     <h2>Aqui aparecéra nuestra cancion</h2>
   </ion-text>
   <ion-text color="primary" *ngIf="song.name">
     <h1>{{ song.name }}</h1>
-  </ion-text>
+  </ion-text> -->
 </ion-footer>

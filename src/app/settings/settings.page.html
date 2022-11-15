@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>settings</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="success-background">
+    <ion-avatar (click)="takePhoto()">
+     <img [src]="userImage" alt="" *ngIf="!photo">
+     <img [src]="photo" alt="" *ngIf="photo">
+    </ion-avatar>
+    <h1>Carlos Granada</h1>
+    <h2>carlos_granada@msn.com</h2>
+    <ion-grid fixed>
+      <ion-row class="ion-text-center">
+        <ion-col size="4">140</ion-col>
+        <ion-col size="4">2k</ion-col>
+        <ion-col size="4">500</ion-col>
+      </ion-row>
+      <ion-row class="ion-text-center">
+        <ion-col size="4">Artistas</ion-col>
+        <ion-col size="4">Seguimiento</ion-col>
+        <ion-col size="4">Canciones</ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

@@ -21,7 +21,18 @@ export class MenuPage implements OnInit {
   closeMenu(){
     this.menu.close();
   }
-
+  goToHome(){
+    this.navCtrl.navigateRoot('menu/home');
+    this.menu.close();
+  }
+  goToSettings(){
+    this.navCtrl.navigateRoot('menu/settings');
+    this.menu.close();
+  }
+  goToSport(){
+    this.navCtrl.navigateRoot('menu/sport');
+    this.menu.close();
+  }
   logout(){
     this.storage.create();
     this.storage.remove('isUserLoggedIn');
